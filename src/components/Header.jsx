@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { getRatingColor, getRatingLabel } from '../utils/cfColors'
 
 export default function Header({ onSearch, loading, userHandle, currentRating }) {
-  const [input, setInput] = useState('tourist')
+  const [input, setInput] = useState('angeloman')
 
   const handleSubmit = (e) => {
     e.preventDefault()

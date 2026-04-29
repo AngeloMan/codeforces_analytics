@@ -42,7 +42,7 @@ export default function App() {
   const { loading, error, ratingHistory, analytics, userHandle, fetchData } = useCodeforcesData()
 
   useEffect(() => {
-    fetchData('tourist')
+    fetchData('angeloman')
   }, [fetchData])
 
   const currentRating = ratingHistory?.length
