@@ -137,6 +137,10 @@ export default function RatingChart({ data }) {
   const minY = allValues.length ? Math.max(0, Math.min(...allValues) - 100) : 0
   const maxY = allValues.length ? Math.max(...allValues) + 100 : 4000
 
+  // CF rank boundary values — only show ticks within the visible domain
+  const CF_BOUNDARIES = [1200, 1400, 1600, 1900, 2100, 2300, 2400, 2600, 3000]
+  const yTicks = CF_BOUNDARIES.filter((v) => v >= minY && v <= maxY)
+
   return (
     <div>
       {/* Series toggles */}
@@ -188,8 +192,9 @@ export default function RatingChart({ data }) {
           />
           <YAxis
             domain={[minY, maxY]}
-            tick={{ fill: '#6B7280', fontSize: 11 }}
-            tickLine={false}
+            ticks={yTicks}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
+            tickLine={{ stroke: '#1f2937' }}
             axisLine={false}
             width={45}
           />
