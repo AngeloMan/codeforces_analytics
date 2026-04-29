@@ -50,7 +50,7 @@ export default function Header({ onSearch, loading, userHandle, currentRating })
             disabled={loading}
             className="bg-yellow-400 hover:bg-yellow-300 disabled:bg-yellow-900 disabled:text-yellow-700 text-gray-900 font-semibold px-4 py-2 rounded-lg text-sm transition-colors whitespace-nowrap"
           >
-            {loading ? 'Loading…' : 'Analisar'}
+            {loading ? 'Loading…' : 'Analyze'}
           </button>
         </form>
       </div>

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { HEATMAP_LEGEND, getRatingColor } from '../utils/cfColors'
+import { HEATMAP_LEGEND, getRatingColor, getRatingLabel } from '../utils/cfColors'
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const CELL = 14 // 12px square + 2px gap
@@ -97,7 +97,7 @@ function HeatmapTooltip({ tooltip }) {
                     className="ml-1 font-mono font-bold text-[10px]"
                     style={{ color: getRatingColor(p.rating) }}
                   >
-                    ({p.rating})
+                    ({p.rating} · {getRatingLabel(p.rating)})
                   </span>
                 )}
               </span>
@@ -135,7 +135,7 @@ export default function ActivityHeatmap({ dailyData, years = [] }) {
           onChange={(e) => setSelectedPeriod(e.target.value)}
           className="bg-gray-800 text-gray-300 border border-gray-700 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-yellow-400 transition-colors cursor-pointer"
         >
-          <option value="last365">Últimos 365 dias</option>
+          <option value="last365">Last 365 days</option>
           {years.map((y) => (
             <option key={y} value={y}>{y}</option>
           ))}
